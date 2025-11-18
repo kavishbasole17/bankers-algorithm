@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banker's Algorithm Simulator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Banker's Algorithm Simulator</h1>
+    </header>
+
+    <div class="container">
+        <div class="column-state">
+            <div class="card">
+                <h2>Available Resources</h2>
+                <div class="available-resources" id="available-container">
+                    </div>
+            </div>
+
+            <div class="card">
+                <h2>Allocation</h2>
+                <table id="allocation-table">
+                    <thead>
+                        <tr>
+                            <th>Process</th>
+                            <th>A</th>
+                            <th>B</th>
+                            <th>C</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h2>Max</h2>
+                <table id="max-table">
+                    <thead>
+                        <tr>
+                            <th>Process</th>
+                            <th>A</th>
+                            <th>B</th>
+                            <th>C</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h2>Need (Max - Allocation)</h2>
+                <table id="need-table">
+                    <thead>
+                        <tr>
+                            <th>Process</th>
+                            <th>A</th>
+                            <th>B</th>
+                            <th>C</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="column-actions">
+            <div class="card">
+                <h2>Make a Request</h2>
+                <form id="request-form">
+                    <div class="form-group">
+                        <label for="process-select">Select Process</label>
+                        <select id="process-select">
+                            <option value="0">P0</option>
+                            <option value="1">P1</option>
+                            <option value="2">P2</option>
+                            <option value="3">P3</option>
+                            <option value="4">P4</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Request Vector (A, B, C)</label>
+                        <div class="request-inputs">
+                            <input type="number" id="req-a" min="0" value="0">
+                            <input type="number" id="req-b" min="0" value="0">
+                            <input type="number" id="req-c" min="0" value="0">
+                        </div>
+                    </div>
+                    <button type="submit">Submit Request</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <h2>Simulation Log</h2>
+                <div class="simulation-log" id="simulation-log">
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

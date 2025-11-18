@@ -1,0 +1,303 @@
+/* --- 1. Color Palette & Variables --- */
+:root {
+    --bg-color: #f8f9fa;
+    --card-bg-color: #ffffff;
+    --card-border-color: #dadce0;
+    --text-color: #3c4043;
+    --text-color-dark: #202124;
+    --text-color-light: #5f6368;
+    --table-header-bg: #f8f9fa;
+    --table-border-color: #e0e0e0;
+    --input-bg-color: #f8f9fa;
+    --log-bg-color: #f1f3f4;
+    
+    --google-blue: #1a73e8;
+    --google-blue-dark: #185abc;
+    --google-green: #1e8e3e;
+    --google-red: #d93025;
+    --google-yellow: #e67c00;
+
+    --available-bg: #e8f0fe;
+    --available-text: #1967d2;
+    --available-text-dark: #174ea6;
+}
+
+body.dark-mode {
+    --bg-color: #202124; /* Google Dark BG */
+    --card-bg-color: #2d2e30; /* Google Dark Card */
+    --card-border-color: #5f6368;
+    --text-color: #e8eaed; /* Google Dark Text */
+    --text-color-dark: #ffffff;
+    --text-color-light: #9aa0a6;
+    --table-header-bg: #3c4043;
+    --table-border-color: #5f6368;
+    --input-bg-color: #3c4043;
+    --log-bg-color: #202124;
+
+    --available-bg: #3c4043;
+    --available-text: #8ab4f8;
+    --available-text-dark: #8ab4f8;
+}
+
+/* --- 2. Global Styles --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 24px;
+    line-height: 1.6;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 24px;
+    /* Added for positioning the toggle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+h1 {
+    font-weight: 500;
+    color: var(--text-color-dark);
+}
+
+h2 {
+    font-weight: 500;
+    color: var(--text-color-dark);
+    border-bottom: 1px solid var(--table-border-color);
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+}
+
+/* --- 3. Layout --- */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 24px;
+}
+
+.column-state {
+    flex: 2;
+    min-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.column-actions {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* --- 4. Card Style (Core Google UI element) --- */
+.card {
+    background: var(--card-bg-color);
+    border: 1px solid var(--card-border-color);
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* --- 5. State Column Styles --- */
+.available-resources {
+    display: flex;
+    gap: 12px;
+}
+
+.resource {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--available-bg);
+    color: var(--available-text);
+    padding: 12px 20px;
+    border-radius: 20px;
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.resource span {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--available-text-dark);
+    transition: color 0.2s ease;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid var(--table-border-color);
+    transition: border-color 0.2s ease;
+}
+
+th {
+    background-color: var(--table-header-bg);
+    font-weight: 500;
+    color: var(--text-color-light);
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+td {
+    font-weight: 400;
+}
+
+/* --- 6. Action Column Styles --- */
+.form-group {
+    margin-bottom: 16px;
+}
+
+label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--text-color-light);
+}
+
+select, input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--card-border-color);
+    border-radius: 4px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    background-color: var(--input-bg-color);
+    color: var(--text-color); /* Added for dark mode */
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--google-blue);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--google-blue-dark);
+    box-shadow: 0 1px 2px 0 rgba(24,90,188,.3), 0 1px 3px 1px rgba(24,90,188,.15);
+}
+
+/* --- 7. Log Styles --- */
+.simulation-log {
+    height: 300px;
+    background-color: var(--log-bg-color);
+    border-radius: 4px;
+    padding: 12px;
+    overflow-y: auto;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+}
+
+.log-entry {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--table-border-color);
+    transition: border-color 0.2s ease;
+}
+.log-entry:last-child {
+    border-bottom: none;
+}
+.log-success {
+    color: var(--google-green);
+    font-weight: 500;
+}
+.log-error {
+    color: var(--google-red);
+    font-weight: 500;
+}
+.log-info {
+    color: var(--text-color-light);
+}
+.log-warn {
+    color: var(--google-yellow);
+    font-weight: 500;
+}
+
+/* --- 8. Theme Toggle Switch --- */
+.theme-switch-wrapper {
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: var(--google-blue);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px var(--google-blue);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
